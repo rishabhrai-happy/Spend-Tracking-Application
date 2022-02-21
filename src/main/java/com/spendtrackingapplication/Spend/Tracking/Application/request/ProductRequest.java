@@ -1,25 +1,11 @@
-package com.spendtrackingapplication.Spend.Tracking.Application.entity;
+package com.spendtrackingapplication.Spend.Tracking.Application.request;
 
-import javax.persistence.*;
+public class ProductRequest {
 
-@Entity
-@Table(name = "producttable")
-public class Product {
-
-    @Id
-    String id ;
-    String name;
-    String category;
-    String price;
-    String description;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
+    private String name;
+    private String category;
+    private String price;
+   private String description;
 
     public String getName() {
         return name;
@@ -49,7 +35,7 @@ public class Product {
         return description;
     }
 
-    public void setDescription(String discription) {
-        this.description = discription;
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

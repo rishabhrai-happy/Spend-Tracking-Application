@@ -1,18 +1,50 @@
 package com.spendtrackingapplication.Spend.Tracking.Application.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.springframework.stereotype.Component;
+
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-@Table(name = "user_wallet_table")
+@Table(name = "userwallet")
+
 public class UserWallet {
 
     @Id
     String id;
-    String user_id;
-    String wallet_id;
     String balance;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="user_id")
+    private User user;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="wallet_id")
+    private Wallet wallet;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public UserWallet(String id, String balance) {
+        this.id = id;
+        this.balance = balance;
+    }
+
+    public UserWallet() {
+    }
+
+    public Wallet getWallet() {
+        return wallet;
+    }
+
+    public void setWallet(Wallet wallet) {
+        this.wallet = wallet;
+    }
 
     public String getId() {
         return id;
@@ -20,22 +52,6 @@ public class UserWallet {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public String getUser_id() {
-        return user_id;
-    }
-
-    public void setUser_id(String user_id) {
-        this.user_id = user_id;
-    }
-
-    public String getWallet_id() {
-        return wallet_id;
-    }
-
-    public void setWallet_id(String wallet_id) {
-        this.wallet_id = wallet_id;
     }
 
     public String getBalance() {

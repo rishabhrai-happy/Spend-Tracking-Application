@@ -1,12 +1,7 @@
-package com.spendtrackingapplication.Spend.Tracking.Application.entity;
+package com.spendtrackingapplication.Spend.Tracking.Application.response;
 
-import javax.persistence.*;
-import java.io.Serializable;
+public class UserDetails {
 
-@Entity
-@Table(name = "users")
-public class User extends ParentEntity  {
-    @Id
     String id;
     String FirstName;
     String LastName;
@@ -15,44 +10,15 @@ public class User extends ParentEntity  {
     String MobilenNo;
     String city;
     String active;
-
-    @OneToOne
-    @JoinColumn(name="wallet_id")
-    private Wallet wallet;
-
-    @OneToOne
-    @JoinColumn(name="role_id")
-    private Role role;
+    String walletId;
 
 
-    public Wallet getWallet() {
-        return wallet;
+    public String getWalletId() {
+        return walletId;
     }
 
-    public void setWallet(Wallet wallet) {
-        this.wallet = wallet;
-    }
-
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
-    }
-
-    public User(String id, String firstname, String lastname, String password, String email,  String mobileno, String city, String active) {
-        this.id = id;
-        this.FirstName = firstname;
-        this.LastName = lastname;
-        this.password = password;
-        this.email = email;
-        this.MobilenNo = mobileno;
-        this.city = city;
-        this.active = active;
-    }
-    public User(){
-
+    public void setWalletId(String walletId) {
+        this.walletId = walletId;
     }
 
     public String getId() {

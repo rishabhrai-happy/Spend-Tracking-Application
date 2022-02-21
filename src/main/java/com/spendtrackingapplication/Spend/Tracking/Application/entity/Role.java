@@ -1,24 +1,22 @@
 package com.spendtrackingapplication.Spend.Tracking.Application.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "role_table")
 public class Role {
     @Id
-    String role_id;
+    String id;
     String name;
     String discription;
 
 
-    public String getRole_id() {
-        return role_id;
+    public String getId() {
+        return id;
     }
 
-    public void setRole_id(String role_id) {
-        this.role_id = role_id;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {

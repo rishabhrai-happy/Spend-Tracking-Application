@@ -1,18 +1,17 @@
 package com.spendtrackingapplication.Spend.Tracking.Application.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-@Table(name = "wallet_table")
+@Table(name = "wallettable")
 public class Wallet {
 
     @Id
-    String id;
-    String amount;
-    String wallet_type;
-    String discription;
+    private String id;
+    private String amount;
+    private String walletType;
+    private String discription;
 
     public String getId() {
         return id;
@@ -30,19 +29,19 @@ public class Wallet {
         this.amount = amount;
     }
 
-    public String getWallet_type() {
-        return wallet_type;
+    public String getWalletType() {
+        return walletType;
     }
 
-    public void setWallet_type(String wallet_type) {
-        this.wallet_type = wallet_type;
+    public void setWalletType(String wallet_type) {
+        this.walletType = wallet_type;
     }
 
     public String getDiscription() {
         return discription;
     }
 
-    public void setDiscription(String discription) {
+    public void setDescription(String discription) {
         this.discription = discription;
     }
 }
