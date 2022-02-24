@@ -10,16 +10,6 @@ public class UserDetails {
     String MobilenNo;
     String city;
     String active;
-    String walletId;
-
-
-    public String getWalletId() {
-        return walletId;
-    }
-
-    public void setWalletId(String walletId) {
-        this.walletId = walletId;
-    }
 
     public String getId() {
         return id;

@@ -34,11 +34,12 @@ public class RegistraionService {
         user.setLastName(registrationRequest.getLastName());
         user.setCity(registrationRequest.getCity());
         user.setMobilenNo(registrationRequest.getMobileNo());
-        user.setActive("true");
+        user.setActive(registrationRequest.getActive());
         CommonUtils.setCreateEntityFields(user);
         CommonUtils.setUpdateEntityFields(user);
        //Wallet wallet=walletRepository.findById(registrationRequest.getWalletId()).get();
         Wallet wallet=walletRepository.getProductByName(WalletType.BASIC.getName());
+        //WalletType.BASIC.getName())
         Role role=roleRepository.getRoleByName(RoleType.END_USER.name());
         user.setRole(role);
         user.setWallet(wallet);

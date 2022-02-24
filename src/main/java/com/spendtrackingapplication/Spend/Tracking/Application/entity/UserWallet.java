@@ -8,13 +8,13 @@ import java.io.Serializable;
 @Entity
 @Table(name = "userwallet")
 
-public class UserWallet {
+public class UserWallet{
 
     @Id
     String id;
     String balance;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne
     @JoinColumn(name="user_id")
     private User user;
 

@@ -1,10 +1,12 @@
 package com.spendtrackingapplication.Spend.Tracking.Application.init;
 
 import com.spendtrackingapplication.Spend.Tracking.Application.entity.Role;
+import com.spendtrackingapplication.Spend.Tracking.Application.entity.User;
 import com.spendtrackingapplication.Spend.Tracking.Application.entity.Wallet;
 import com.spendtrackingapplication.Spend.Tracking.Application.enums.RoleType;
 import com.spendtrackingapplication.Spend.Tracking.Application.enums.WalletType;
 import com.spendtrackingapplication.Spend.Tracking.Application.repository.RoleRepository;
+import com.spendtrackingapplication.Spend.Tracking.Application.repository.UserRepository;
 import com.spendtrackingapplication.Spend.Tracking.Application.repository.WalletRepository;
 import com.spendtrackingapplication.Spend.Tracking.Application.utils.CommonUtils;
 import org.springframework.beans.factory.InitializingBean;
@@ -28,6 +30,11 @@ public class BootstrapData implements InitializingBean {
     private RoleRepository roleRepository;
     @Autowired
     private WalletRepository walletRepository;
+
+    @Autowired
+    private UserRepository userRepository;
+
+
     @Override
     public void afterPropertiesSet() throws Exception {
 
@@ -69,6 +76,23 @@ public class BootstrapData implements InitializingBean {
             premium.setDescription("This is premium amount");
             walletList.add(premium);
             walletRepository.saveAll(walletList);
+        }
+
+        if(userRepository.findAll().isEmpty()) {
+            User user = new User();
+            Role role = roleRepository.getRoleByName(RoleType.SYSTEM_ADMIN.name());
+            user.setFirstName("Rishabh");
+            user.setMobilenNo("9616239145");
+            user.setId(CommonUtils.generateUUID());
+            user.setCity("mathura");
+            user.setLastName("Rai");
+            user.setActive("true");
+            user.setEmail("rishabhrai980@gmail.com");
+            user.setPassword("123456789");
+            CommonUtils.setCreateEntityFields(user);
+            CommonUtils.setUpdateEntityFields(user);
+            user.setRole(role);
+            userRepository.save(user);
         }
 
 

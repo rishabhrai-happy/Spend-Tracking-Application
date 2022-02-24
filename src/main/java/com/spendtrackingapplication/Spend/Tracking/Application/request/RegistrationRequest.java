@@ -12,6 +12,15 @@ public class RegistrationRequest {
     private String city;
     private String WalletId;
     private String roleId;
+    private  String active;
+
+    public String getActive() {
+        return active;
+    }
+
+    public void setActive(String active) {
+        this.active = active;
+    }
 
     public String getRoleId() {
         return roleId;

@@ -5,9 +5,10 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
+import java.util.List;
+
 public interface UserWalletRepository extends CrudRepository<UserWallet,String> {
 
-    @Query(value = "select balance from tracking.userwallet right join tracking.users on tracking.userwallet.user_id=tracking.users.id;",nativeQuery = true)
-    public String balanceUser(@Param("id") String id);
-
+    @Query(value = "From UserWallet where user_id=:id")
+    UserWallet getUserWallet(@Param("id") String id);
 }

@@ -5,7 +5,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "wallettable")
-public class Wallet {
+public class Wallet implements Serializable {
 
     @Id
     private String id;

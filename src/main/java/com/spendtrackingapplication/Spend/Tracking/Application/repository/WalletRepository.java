@@ -11,4 +11,7 @@ public interface WalletRepository extends JpaRepository<Wallet,String> {
 
     @Query(value="From Wallet where walletType=:walletType")
     Wallet getProductByName(@Param("walletType") String name);
+
+//    @Query(value="From Wallet where amount=:amount")
+//    Wallet getProductByAmount(@Param("amount") String name);
 }

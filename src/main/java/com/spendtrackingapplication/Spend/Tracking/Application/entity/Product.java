@@ -1,6 +1,7 @@
 package com.spendtrackingapplication.Spend.Tracking.Application.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "producttable")
